@@ -1,0 +1,19 @@
+.Header {
+  margin: 10px 0;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: #8F5C2C;
+  text-decoration: none;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+a:hover, a:active, a.active {
+  color: #40A4C8;
+  display: inline-block;
+}
