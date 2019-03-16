@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
 
 import { addExpense } from './actions/expensesActions';
-import { setTextFilter } from './actions/filtersActions';
+import { setTextFilter, sortbyAmount } from './actions/filtersActions';
 import reducer from './reducers';
 import './index.css';
 import App from './App';
@@ -19,8 +19,9 @@ store.subscribe(() => {
 })
 
 store.dispatch(addExpense({ description: 'Water Bill', amount: 200 }))
-store.dispatch(addExpense({ description: 'Water ' }))
-store.dispatch(setTextFilter('water'))
+store.dispatch(addExpense({ description: 'Water' }))
+store.dispatch(setTextFilter('bill'))
+// store.dispatch(sortbyAmount())
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }));
 const expenseTwo = store.dispatch(addExpense({ description: 'Coffee with water', amount: 300, createdAt: -1000 }));
 
