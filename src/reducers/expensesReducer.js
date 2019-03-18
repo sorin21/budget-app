@@ -1,19 +1,32 @@
 import { ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from '../actions/expensesActions';
+import { getVisibleExpenses } from '../common/GetVisibleExpense';
 
 // 550.00 dollar is 55000 pennies
-const initialState = [];
+const initialState = {
+  expenses: []
+};
 
 const expensesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_EXPENSE:
-      return [
+      const newExpense = {
+        id: action.id,
+        description: action.description,
+        note: action.note,
+        amount: action.amount,
+        createdAt: action.createdAt
+      }
+      return {
         ...state,
-        action.expense
-      ];
+        expenses: state.expenses.concat(newExpense)
+      };
     case REMOVE_EXPENSE:
-      return state.expenses.filter((expense) => {
-        return expense.id !== action.id
-      });
+      return {
+        ...state,
+        expenses: state.expenses.filter((expense) => {
+          return expense.id !== action.id
+        })
+      };
 
     case EDIT_EXPENSE:
       return state.expenses.map(expense => {

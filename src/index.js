@@ -17,13 +17,15 @@ const store = createStore(reducer)
 store.subscribe(() => {
   console.log("store.getState()", store.getState())
 })
+store.dispatch(setTextFilter('water'))
+store.dispatch(addExpense({ description: 'Water Bill', amount: 200, note: 'This bill is for this month' }))
+store.dispatch(addExpense({ description: 'Coffee water', createdAt: 100 }))
+store.dispatch(addExpense({ description: 'Rent', amount: 109100, note: 'This bill is for last day' }))
 
-store.dispatch(addExpense({ description: 'Water Bill', amount: 200 }))
-store.dispatch(addExpense({ description: 'Water' }))
-store.dispatch(setTextFilter('bill'))
+
 // store.dispatch(sortbyAmount())
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }));
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee with water', amount: 300, createdAt: -1000 }));
+// const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }));
+// const expenseTwo = store.dispatch(addExpense({ description: 'Coffee with water', amount: 300, createdAt: -1000 }));
 
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 // store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));

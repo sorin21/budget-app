@@ -6,13 +6,12 @@ import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
 import { getVisibleExpenses } from '../../common/GetVisibleExpense';
 
 class ExpensesList extends Component {
-  componentDidMount() {
-    this.props.onAddExpense({ description: "Rent", amount: 500 })
-    this.props.onAddExpense({ description: "Cofeee", amount: 300 })
-  }
+  // componentDidMount() {
+  //   this.props.onAddExpense({ description: "Rent", amount: 500 })
+  //   this.props.onAddExpense({ description: "Cofeee", amount: 300 })
+  // }
 
   render() {
-    console.log(Array.isArray(this.props.expenses))
     return (
       <div>
         <h1>Expenses List</h1>
@@ -20,7 +19,11 @@ class ExpensesList extends Component {
         {this.props.expenses.map(expense => {
           return <ExpensesListItem
             key={expense.id}
-            {...expense} />
+            id={expense.id}
+            description={expense.description.description}
+            createdAt={expense.description.createdAt}
+            amount={expense.description.amount}
+            note={expense.description.note} />
         })}
       </div>
     );
@@ -29,7 +32,7 @@ class ExpensesList extends Component {
 
 
 const mapStateToProps = state => {
-  console.log(state.expenses)
+  console.log('state.filters', state.filters)
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters)
   }
