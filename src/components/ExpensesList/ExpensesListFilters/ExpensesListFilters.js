@@ -10,11 +10,12 @@ class ExpensesListFilters extends Component {
   }
   selectHandler = (event) => {
     const target = event.target.value
-    console.log('target', target)
     if (target === 'date') {
       this.props.onSortbyDate();
+      console.log('this props date', this.props.onSortbyDate())
     } else if (target === 'amount') {
       this.props.onSortbyAmount();
+      console.log('this props amount', this.props.onSortbyAmount())
     }
   }
   render() {
@@ -44,8 +45,8 @@ const mapStateToProps = state => {
 const mapDispatchProps = dispatch => {
   return {
     onSetTextFilter: (text) => dispatch(setTextFilter(text)),
-    onSortbyDate: (text) => dispatch(sortbyDate()),
-    onSortbyAmount: (text) => dispatch(sortbyAmount())
+    onSortbyDate: () => dispatch(sortbyDate()),
+    onSortbyAmount: () => dispatch(sortbyAmount())
   }
 }
 

@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export const getVisibleExpenses = (expenses, filters) => {
   console.log('expenses', expenses)
-  console.log('filters', filters)
+  console.log('filtersS', filters)
   return expenses.expenses.filter(expense => {
     // console.log('expense', expense)
     // true for non numbers

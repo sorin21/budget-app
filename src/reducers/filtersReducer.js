@@ -1,12 +1,12 @@
 import { TEXT_FILTER, SORT_BY_AMOUNT, SORT_BY_DATE, START_DATE, END_DATE } from '../actions/filtersActions';
 
 const initialState = {
-  filters: {
+  // filters: {
     text: '',
     sortBy: 'date',
     startDate: undefined,
     endDate: undefined
-  }
+  // }
 }
 
 const filtersReducer = (state = initialState, action) => {

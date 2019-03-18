@@ -32,7 +32,7 @@ class ExpensesList extends Component {
 
 
 const mapStateToProps = state => {
-  console.log('state.filters', state.filters)
+  console.log('state.filterssss', state.filters)
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters)
   }
