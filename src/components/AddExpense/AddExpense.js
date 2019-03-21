@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addExpense } from '../../actions/expensesActions';
+import ExpenseForm from '../ExpenseForm/ExpenseForm';
 
 class AddExpense extends Component {
   render() {
@@ -9,6 +10,7 @@ class AddExpense extends Component {
     return (
       <div>
         AddExpense with expenses
+        <ExpenseForm />
         <hr />
         <button onClick={this.props.onAddExpense}>Expenses</button>
       </div>
