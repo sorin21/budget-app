@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-import '../setupTests';
+// import '../setupTests';
 import Header from '../../components/Header/Header';
 
 // enzyme-to-json convert Enzyme wrappers to a format compatible 
