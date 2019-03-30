@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { addExpense } from './actions/expensesActions';
 import reducer from './reducers';
 import './index.css';
+import 'react-dates/lib/css/_datepicker.css';
+
 import App from './App';
 
 

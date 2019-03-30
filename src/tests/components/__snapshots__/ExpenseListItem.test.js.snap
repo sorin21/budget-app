@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpensesListItem component 1`] = `
+<div>
+  <Link
+    to="/edit/1"
+  >
+    <h3>
+      Description: 
+      Gum
+    </h3>
+  </Link>
+  <p>
+    Amount: 
+    195.00
+  </p>
+  <p>
+    Created At: 
+    January 1st, 1970 02:00
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</div>
+`;
