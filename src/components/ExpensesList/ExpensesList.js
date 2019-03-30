@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addExpense } from '../../actions/expensesActions';
 import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
-import { getVisibleExpenses } from '../../common/GetVisibleExpense';
+import getVisibleExpenses from '../../common/GetVisibleExpense';
 
 class ExpensesList extends Component {
   // componentDidMount() {
@@ -19,12 +19,9 @@ class ExpensesList extends Component {
         {this.props.expenses.map(expense => {
           return <ExpensesListItem
             key={expense.id}
-            id={expense.id}
-            description={expense.description.description}
-            createdAt={expense.description.createdAt}
-            amount={expense.description.amount}
-            note={expense.description.note} />
+            expense={expense} />
         })}
+
       </div>
     );
   }
@@ -32,7 +29,6 @@ class ExpensesList extends Component {
 
 
 const mapStateToProps = state => {
-  console.log('state.filterssss', state.filters)
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters)
   }
@@ -40,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchProps = dispatch => {
   return {
-    onAddExpense: ({ description, amount }) => dispatch(addExpense({ description, amount }))
+    onAddExpense: ({ description, amount }) => dispatch(addExpense({ description, amount })),
   }
 }
 

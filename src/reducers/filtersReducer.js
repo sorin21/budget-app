@@ -1,11 +1,15 @@
+import moment from 'moment';
+
 import { TEXT_FILTER, SORT_BY_AMOUNT, SORT_BY_DATE, START_DATE, END_DATE } from '../actions/filtersActions';
 
 const initialState = {
   // filters: {
-    text: '',
-    sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined
+  text: '',
+  sortBy: 'date',
+  // limit startDate to be at start of the current month
+  // to see the expenses only on the current month
+  startDate: moment().startOf('month'),
+  endDate: moment().endOf('month')
   // }
 }
 

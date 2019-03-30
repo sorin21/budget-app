@@ -12,7 +12,7 @@ class Header extends Component {
         <NavLink activeClassName={classes.active} to="/" exact>Home</NavLink>
         <NavLink activeClassName={classes.active} to="/create">Add Expense</NavLink>
         <NavLink activeClassName={classes.active} to="/edit">Edit Expense</NavLink>
-        <NavLink activeClassName={classes.active} to="/hoc">Hoc</NavLink>
+        {/* <NavLink activeClassName={classes.active} to="/hoc">Hoc</NavLink> */}
       </header>
     );
   }

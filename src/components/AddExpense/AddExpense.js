@@ -6,13 +6,23 @@ import ExpenseForm from '../ExpenseForm/ExpenseForm';
 
 class AddExpense extends Component {
   render() {
-    console.log('this.props.expenses', this.props)
     return (
       <div>
         AddExpense with expenses
-        <ExpenseForm />
+        <ExpenseForm
+          // we add onSubmit here so we can use
+          // the ExpenseForm in other places
+          // the function is executed here
+          // that is why we get back from ExpenseForm
+          // the expense object
+          onSubmit={(expense) => {
+            this.props.onAddExpense(expense);
+            this.props.history.push('/');
+            // console.log(expense)
+            // console.log(props)
+
+          }} />
         <hr />
-        <button onClick={this.props.onAddExpense}>Expenses</button>
       </div>
     );
   }
@@ -26,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchProps = dispatch => {
   return {
-    onAddExpense: () => dispatch(addExpense({ description: "Rent", amount: 100 }))
+    onAddExpense: (expense) => dispatch(addExpense(expense))
   }
 }
 

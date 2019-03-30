@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import numeral from "numeral";
 import moment from 'moment';
@@ -9,16 +10,21 @@ import { removeExpense } from '../../../actions/expensesActions';
 
 class ExpensesListItem extends Component {
   render() {
-    // { id, description, amount, createdAt, note } = this.props;
+    const { id, description, amount, createdAt, note } = this.props.expense;
     return (
       <div>
-        <Link to={`/edit/${this.props.id}`}>
-          <h3>Description: {this.props.description}</h3>
+        <Link to={`/edit/${id}`}>
+          <h3>Description: {description}</h3>
         </Link>
-        <p>Amount: {numeral(this.props.amount).format('0,0.00')}</p>
-        <p>Created At: {moment(this.props.createdAt).format('MMMM Do, YYYY HH:mm')}</p>
-        {this.props.note && <p>Note: {this.props.note}</p>}
-        <button onClick={() => this.props.onRemoveExpense(this.props.id)}>Remove</button>
+        <p>Amount: {numeral(amount).format('0,0.00')}</p>
+        <p>Created At: {moment(createdAt).format('MMMM Do, YYYY HH:mm')}</p>
+        {note && <p>Note: {note}</p>}
+        <button
+          onClick={() => {
+            this.props.onRemoveExpense(id);
+            this.props.history.push('/');
+          }}
+        >Remove</button>
       </div>
     );
   }
@@ -32,8 +38,8 @@ const mapStateToProps = state => {
 
 const mapDispatchProps = dispatch => {
   return {
-    onRemoveExpense: (id) => dispatch(removeExpense(id))
+    onRemoveExpense: (id) => dispatch(removeExpense({ id }))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchProps)(ExpensesListItem);
+export default withRouter(connect(mapStateToProps, mapDispatchProps)(ExpensesListItem));
