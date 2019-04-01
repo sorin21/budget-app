@@ -8,6 +8,9 @@
     "test": "jest --config=jest.config.json"
   },
   "jest": {
+    "transform": {
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
+    },
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     }
