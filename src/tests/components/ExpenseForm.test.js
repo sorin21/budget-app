@@ -10,6 +10,6 @@ test('should render ExpenseForm with default values', () => {
 });
 
 test('should render ExpenseForm with an expense', () => {
-  const wrapper = shallow(<ExpenseForm {...expenses[0]} />);
+  const wrapper = shallow(<ExpenseForm expense={expenses[1]} />);
   expect(wrapper).toMatchSnapshot();
 });
