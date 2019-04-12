@@ -155,6 +155,11 @@ dist/bundle.js.map.js
 dist/styles.css
 dist/styles.css.map
 
+add all your file to repository so heroku will know about them
+git add .
+git commit
+git push to github
+
 6. Push to heroku 
 git push heroku master
 
