@@ -173,3 +173,4 @@ heroku open
 
 1. Intall Firebase with this command
 npm install firebase
+
