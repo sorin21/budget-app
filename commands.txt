@@ -162,9 +162,7 @@ git push to github
 
 6. Push to heroku 
 git push heroku master
-
 or 
-
 heroku git:remote -a react-redux-budget
 
 7. Open the app in browser after login
