@@ -4,7 +4,7 @@ const app = express();
 const distPath = path.join(__dirname, '..', 'dist');
 // run at port 5000 locally 
 // process.env.PORT this is when we run at Heroku
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(distPath));
 
