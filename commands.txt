@@ -165,7 +165,7 @@ git push heroku master
 or 
 heroku git:remote -a react-redux-budget
 
-7. Open the app in browser after login
+7. OPEN the app in browser after login
 heroku open
 
 
