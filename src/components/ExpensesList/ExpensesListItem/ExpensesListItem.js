@@ -7,7 +7,8 @@ import moment from 'moment';
 
 import { removeExpense } from '../../../actions/expensesActions';
 
-export const ExpensesListItem = ({ id, description, amount, createdAt, note }) => {
+export const ExpensesListItem = (props) => {
+  const { id, description, amount, createdAt, note } = props.expense;
   return (
     <div>
       <Link to={`/edit/${id}`}>
@@ -18,8 +19,8 @@ export const ExpensesListItem = ({ id, description, amount, createdAt, note }) =
       {note && <p>Note: {note}</p>}
       <button
         onClick={() => {
-          this.props.onRemoveExpense(id);
-          this.props.history.push('/');
+          props.onRemoveExpense(id);
+          props.history.push('/');
         }}
       >Remove</button>
     </div>

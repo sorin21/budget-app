@@ -40,6 +40,7 @@ class ExpenseForm extends Component {
     // then we have a .
     // then we have only 2 decimals in the end
     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+      // if will be an invalid data, amount will be ''
       this.setState(() => ({ amount }));
     }
   }

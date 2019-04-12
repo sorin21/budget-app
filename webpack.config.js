@@ -1,6 +1,10 @@
 var path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const isProduction = (env) => {
+  return env === "production"
+};
+
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -29,6 +33,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              // modules: true,
+              // sourceMap shows in console the error line in code
               sourceMap: true,
               localIdentName: "[name]__[local]__[hash:base64:5]"
             }
@@ -44,7 +50,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'inline-source-map',
+  devtool: isProduction ? "source-map" : "cheap-module-eval-source-map",
   devServer: {
     historyApiFallback: true,
     contentBase: path.join(__dirname, "dist"),

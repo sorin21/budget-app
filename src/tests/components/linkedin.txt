@@ -1,0 +1,12 @@
+I started from scratch this project with the HTML, CSS, SASS, Webpack the skeleton 
+- The company wanted to see income and expenses from each department
+- In the app you can add, edit, delete and search for any expense or income
+- Also you can sort any expense by Date or Amount
+- I implemented Jest and Enzyme to test the app in frontend
+- I used Jest to test, from React Redux, all the actions, reducers and common functions
+- I used Enzyme and Enzyme to JSON to test the components and containers
+- Because in the app we have a lot of dates, I used momentjs and in the tests I used Mocks, so I can be able to test any file that has moment imported
+- For the date library imported, that we used, I had to test the props that are from this date component, and not created by me, using the prop method from Jest
+- I test all possibilities that the user can interact with the app, with data or without any data submitted, by using Simulate method
+- I used Jest Spies methods, called mock functions, to test when we submit the form, with correct data, all the errors get cleared
+

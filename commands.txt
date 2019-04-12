@@ -1,0 +1,172 @@
+1. npm init -y
+2. npm i webpack webpack-cli webpack-dev-server -D
+3. package.json
+-- hot = allow you to only reload the component that is changed 
+"scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+4. To create dist folder
+npm run start
+5. npm i react react-dom -S
+6. npm i babel-core babel-loader babel-preset-env babel-preset-react -D
+7. Create webpack.config.js
+8. Create .babelrc
+9. Create index.js and index.html
+10. Install html-webpack-plugin
+npm i html-webpack-plugin -D
+-  This plugin generates an HTML file with <script> injected, writes this to dist/index.html, and minifies the file.
+- The filename value is the name of the minified HTML that will be generated in the dist folder.
+
+11. npm i css-loader style-loader -D
+  npm install sass-loader node-sass -D
+  npm install extract-text-webpack-plugin@next
+  npm i -D postcss-loader
+
+12. Install normalize css to CSS resets
+npm install normalize.css
+
+- add it to app.js or index.js
+import 'normalize.css/normalize.css';
+
+
+
+13. Add webpack devtool for cheching  errors
+devtool: 'cheap-module-eval-source-map',
+
+12a. Install Class properties transform to add properties(methods) to classes wihout constructor
+https://babeljs.io/docs/plugins/transform-class-properties/
+
+npm install -D babel-plugin-transform-class-properties
+
+- add this to .babelrc to plugins
+    "transform-class-properties",
+
+
+13. Install unic id generator
+npm install uuid
+
+14. Format amount
+http://numeraljs.com/
+
+
+
+#################### ROUTING ####################
+
+14. Install React Router Dom 
+npm i react-router-dom 
+
+
+
+
+#################### REDUX ####################
+
+15. npm i redux react-redux
+
+
+16. Install Object rest spread transform
+npm install --save-dev babel-plugin-transform-object-rest-spread
+ 
+ - then add it to .babelrc file
+
+{
+  "plugins": ["transform-object-rest-spread"]
+}
+
+17. Install momentjs and airbnb
+http://momentjs.com/
+
+https://github.com/airbnb/react-dates
+
+npm i moment react-dates react-addons-shallow-compare
+
+- react dates require a dependecy: react-addons-shallow-compare
+
+18. Install cross origin resource share
+npm install --save cors
+npm install --save express 
+npm install --save-dev webpack-node-externals 
+
+19. Create a .ssh key
+1)- Check if there is a .ssh key
+ls -a ~/.ssh
+
+2)- Generate a new sets of keys with:
+t = type rsa (to securelly comunicate to github)
+b = bit size 4096 - the bigger the key the harder to krack
+C = comment - provide email address
+
+ssh-keygen -t rsa -b 4096 -C "dragonsorin@gmail.com"
+
+On file question hit enter for default id_rsa name
+No pass so hit again enter
+
+3)- Check if ssh agent is running
+- open a bash window to run this command
+eval "$(ssh-agent -s)"
+
+4)Add connection(still in bash)
+ssh-add .ssh/id_rsa
+- u have to be in the user/you_name than .ssh/id_rsa
+
+5) Copy the SSH key to clipboard
+- still in bash, still in your_name folder
+clip < .ssh/id_rsa.pub
+
+6) Then go to GitHub user settings to SHH and click on new SHH key
+
+7)Test connection to GitHub 
+- in terminal run
+ssh -T git@github.com 
+- type yes to accept to connect to GitHub
+
+################## HEROKU ##################
+
+1. Install the CLI 
+https://devcenter.heroku.com/articles/heroku-cli
+
+2. Check installation
+heroku --version
+
+3. Login first
+heroku login 
+
+// Do this after you push the project
+heroku git:remote -a react-redux-budget
+git pull heroku master
+
+4. Create an app 
+heroku create company-budget-app
+
+5. Check remote 
+git remote -v
+
+add this line in server.js
+const port = process.env.PORT || 5000;
+
+add this in package.json
+this will run after heroku install all our dependencies
+this will run webpack with the prod build command on the heroku server
+"heroku-postbuild": "npm run build"
+
+add in .gitignore these files
+dist/bundle.js
+dist/bundle.js.map.js
+dist/styles.css
+dist/styles.css.map
+
+6. Push to heroku 
+git push heroku master
+
+or 
+
+heroku git:remote -a react-redux-budget
+
+7. Open the app in browser after login
+heroku open
+
+
+################## FIREBASE ##################
+
+1. Intall Firebase with this command
+npm install firebase
