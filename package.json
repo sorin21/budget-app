@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "webpack --mode production --env.NODE_ENV=production --progress",
     "test": "jest --config=jest.config.json --watchAll",
+    "start": "node server/server.js",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
